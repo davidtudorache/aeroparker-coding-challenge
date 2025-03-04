@@ -28,12 +28,15 @@ public class Customer {
     private String email_address;
 
     @NotBlank
+    @Column(length = 5)
     private String title;
 
     @NotBlank
+    @Column(length = 50)
     private String first_name;
 
     @NotBlank
+    @Column(length = 50)
     private String last_name;
 
     @NotBlank
@@ -44,8 +47,10 @@ public class Customer {
     private String city;
 
     @NotBlank
+    @Column(length = 10)
     private String postcode;
 
+    @Column(length = 20)
     private String phone_number;
 
     //Getters and Setters
