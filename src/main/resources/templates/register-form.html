@@ -34,7 +34,7 @@
 
         <br> <br>
         <h1>Customer Form</h1>
-        <form action="/addCustomer" method="post">
+        <form action="/addCustomer" method="post" onsubmit="return validateForm()">
             <label for="title">Title:</label><br>
             <input type="text" id="title" name="title"><br>
             <label for="firstName">First Name:</label><br>
@@ -57,3 +57,57 @@
         </form>
     </body>
 </html>
+
+
+
+<script>
+    function validateForm() {
+        var title = document.getElementById("title").value;
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+        var phoneNumber = document.getElementById("phoneNumber").value;
+        var addressLine1 = document.getElementById("addressLine1").value;
+        var addressLine2 = document.getElementById("addressLine2").value;
+        var postcode = document.getElementById("postcode").value;
+        var city = document.getElementById("city").value;
+
+        if (title == "" || firstName == "" || lastName == "" || email == "" || addressLine1 == "" || postcode == "" ) {
+            alert("All fields must be filled out");
+            return false;
+        }
+
+        if (title.length > 5) {
+            alert("Title must be less than 5 characters");
+            return false;
+        }
+
+        if (firstName.length > 50) {
+            alert("First name must be less than 50 characters");
+            return false;
+        }
+
+        if (lastName.length > 50) {
+            alert("Last name must be less than 50 characters");
+            return false;
+        }
+
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!email.match(emailPattern)) {
+            alert("Email must be in the correct format");
+            return false;
+        }
+
+        var phoneNumberPattern = /^\d{11}$/;
+        if (!phoneNumber.match(phoneNumberPattern)) {
+            alert("Phone number must be 11 digits");
+            return false;
+        }
+
+        if (postcode.length > 10) {
+            alert("Postcode must be less than 10 characters");
+            return false;
+        }
+
+    }
+</script>

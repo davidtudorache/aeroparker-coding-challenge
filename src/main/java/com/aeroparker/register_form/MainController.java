@@ -48,7 +48,7 @@ public class MainController {
         Customer customer = new Customer();
         customer.setFirstName(first_name);
         customer.setLastName(last_name);
-        customer.setEmailAddress(email_address);
+        customer.setEmailAddress(email_address.toLowerCase());
         customer.setPhoneNumber(phone_number);
         customer.setAddressLine1(address_line_1);
         customer.setAddressLine2(address_line_2);
